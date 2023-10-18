@@ -16,10 +16,10 @@ Aggiungere una select accanto al bottone di generazione, che fornisca una scelta
 const btn = document.getElementById('start');
 btn.addEventListener('click', function(){
     //num di quadratini da generare
-    let numSquare = 64;
     //mi prendo la griglia di gioco
     const playground = document.getElementById('playground');
     playground.innerHTML = '';
+    const numSquare = document.getElementById('difficultMode').value;
     //ciclo per stampare i quadratini
     for(let i = 0; i < numSquare; i++){
         //genero quadratino
@@ -34,7 +34,7 @@ function drawSquare(squareIndex, numSquare){
     let squareWidth = Math.sqrt(numSquare);
     const square = document.createElement('div');
     square.classList.add('square');
-    square.style.width = `calc(100 / ${squareWidth})`;
+    square.style.width = `calc(100% / ${squareWidth})`;
     square.style.height = square.style.width;
     square.innerHTML = squareIndex + 1;
     square.addEventListener('click', function(){
@@ -47,75 +47,3 @@ function drawSquare(squareIndex, numSquare){
 const easyButton = document.getElementById('easy');
 const mediumButton = document.getElementById('medium');
 const hardButton = document.getElementById('hard');
-
-easyButton.addEventListener('click', function(){
-    const squareEasy = 49;
-    playground.innerHTML = '';
-    for(let i = 0; i < squareEasy; i++){
-        //genero quadratino
-        let square = drawSquare(i, squareEasy);
-        //appendo il quadratino alla griglia
-        playground.append(square);
-    }
-    function drawSquare(squareIndex, squareEasy){
-        const squareWidth = Math.sqrt(squareEasy);
-        const square = document.createElement('div');
-        square.classList.add('squareEasy');
-        square.style.width = `calc(100 / ${squareWidth})`;
-        square.style.height = square.style.width;
-        square.innerHTML = squareIndex + 1;
-        square.addEventListener('click', function(){
-            square.classList.add('active');
-        });
-        return square;
-    }
-
-})
-
-mediumButton.addEventListener('click', function(){
-    const squareMedium = 81;
-    playground.innerHTML = '';
-    for(let i = 0; i < squareMedium; i++){
-        //genero quadratino
-        let square = drawSquare(i, squareMedium);
-        //appendo il quadratino alla griglia
-        playground.append(square);
-    }
-    function drawSquare(squareIndex, squareEasy){
-        const squareWidth = Math.sqrt(squareMedium);
-        const square = document.createElement('div');
-        square.classList.add('squareMedium');
-        square.style.width = `calc(100 / ${squareWidth})`;
-        square.style.height = square.style.width;
-        square.innerHTML = squareIndex + 1;
-        square.addEventListener('click', function(){
-            square.classList.add('active');
-        });
-        return square;
-    }
-
-})
-
-hardButton.addEventListener('click', function(){
-    const squareHard = 100;
-    playground.innerHTML = '';
-    for(let i = 0; i < squareHard; i++){
-        //genero quadratino
-        let square = drawSquare(i, squareHard);
-        //appendo il quadratino alla griglia
-        playground.append(square);
-    }
-    function drawSquare(squareIndex, squareEasy){
-        const squareWidth = Math.sqrt(squareHard);
-        const square = document.createElement('div');
-        square.classList.add('squareHard');
-        square.style.width = `calc(100 / ${squareWidth})`;
-        square.style.height = square.style.width;
-        square.innerHTML = squareIndex + 1;
-        square.addEventListener('click', function(){
-            square.classList.add('active');
-        });
-        return square;
-    }
-
-})
