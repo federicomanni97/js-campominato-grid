@@ -24,36 +24,3 @@ body{
     color: white;
 }
 
-.squareEasy{
-    border: 1px solid white;
-    width: calc(100% / 7);
-    height: calc(100% / 7);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white;
-}
-
-.squareMedium{
-    border: 1px solid white;
-    width: calc(100% / 9);
-    height: calc(100% / 9);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white;
-}
-
-.squareHard{
-    border: 1px solid white;
-    width: calc(100% / 10);
-    height: calc(100% / 10);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white;
-}
-
-.active{
-    background-color: rgb(59, 255, 157);
-}
