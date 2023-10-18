@@ -13,3 +13,32 @@ Aggiungere una select accanto al bottone di generazione, che fornisca una scelta
 - con difficoltà 2 => 81 caselle, con un numero compreso tra 1 e 81, divise in 9 caselle per 9 righe;
 - con difficoltà 3 => 49 caselle, con un numero compreso tra 1 e 49, divise in 7 caselle per 7 righe;
 */ 
+const btn = document.getElementById('start');
+btn.addEventListener('click', function(){
+    //num di quadratini da generare
+    const numSquare = 64;
+    //mi prendo la griglia di gioco
+    const playground = document.getElementById('playground');
+    playground.innerHTML = '';
+    //ciclo per stampare i quadratini
+    for(let i = 0; i < numSquare; i++){
+        //genero quadratino
+        let square = drawSquare(i, numSquare);
+        //appendo il quadratino alla griglia
+        playground.append(square);
+    }
+
+});
+
+function drawSquare(squareIndex, numSquare){
+    const squareWidth = Math.sqrt(numSquare);
+    const square = document.createElement('div');
+    square.classList.add('square');
+    square.style.width = `calc(100 / ${squareWidth})`;
+    square.style.height = square.style.width;
+    square.innerHTML = squareIndex + 1;
+    square.addEventListener('click', function(){
+        square.classList.add('active');
+    });
+    return square;
+}
