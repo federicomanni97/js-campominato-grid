@@ -13,7 +13,11 @@ Aggiungere una select accanto al bottone di generazione, che fornisca una scelta
 - con difficoltà 2 => 81 caselle, con un numero compreso tra 1 e 81, divise in 9 caselle per 9 righe;
 - con difficoltà 3 => 49 caselle, con un numero compreso tra 1 e 49, divise in 7 caselle per 7 righe;
 */ 
+const easyButton = document.getElementById('easy');
+const mediumButton = document.getElementById('medium');
+const hardButton = document.getElementById('hard');
 const btn = document.getElementById('start');
+
 btn.addEventListener('click', function(){
     //num di quadratini da generare
     //mi prendo la griglia di gioco
@@ -44,6 +48,38 @@ function drawSquare(squareIndex, numSquare){
     return square;
 }
 
-const easyButton = document.getElementById('easy');
-const mediumButton = document.getElementById('medium');
-const hardButton = document.getElementById('hard');
+//Il computer deve generare 16 numeri casuali nello stesso range della difficoltà prescelta: le bombe. Attenzione: nella stessa cella può essere posizionata al massimo una bomba, perciò nell’array delle bombe non potranno esserci due numeri uguali.
+let bombsToGenerate = 16;
+let bombs = [];
+for (let index = 0; index < bombsToGenerate; index++) {
+    let randomNumber = getRndInteger(1, 49)
+    
+    bombs.push(randomNumber);
+    console.log(bombs);
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//UTILITY
+function getRndInteger(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
